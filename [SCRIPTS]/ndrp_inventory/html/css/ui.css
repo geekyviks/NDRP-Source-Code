@@ -1,0 +1,452 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Signika', sans-serif;
+    text-transform: uppercase;
+    color: white;
+    text-shadow:
+        -0.5px -0.5px 0 #000,
+        0.5px -0.5px 0 #000,
+        -0.5px 0.5px 0 #000,
+        0.5px 0.5px 0 #000;
+}
+
+.ui {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    z-index: 0;
+}
+
+.inventory {
+    position: absolute;
+    left: 55%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    width: 1550px;
+    height: 600px;  
+}
+
+#playerInventory {
+    width: 500px;
+    height: 484px;
+    float: left;
+    overflow-y: scroll
+}
+
+#controls {
+    width: 200px;
+    height: 600px;
+    float: left;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+#otherInventory {
+    width: 500px;
+    height: 484px;
+    float: left;
+    overflow-y: scroll
+}
+
+#count {
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+
+#playerInventoryFastItems {
+    width: 500px;
+    height: 50px;
+	position : absolute;
+	bottom : 120.4%;
+	left: 0%;
+	z-index: 100;
+	float:left;
+}
+
+.slotfix {
+    float: left;
+    width: 117px;
+    height: 117px;
+    background-color: rgba(50, 50, 50, 0.68);
+    margin: 2px;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.slotFast {
+    float: left;
+    width: 117px;
+    height: 117px;
+    background-color: rgba(50, 50, 50, 0.68);
+    margin: 2px;
+    position: relative;
+    box-shadow: 0px -2.13vh 0px rgba(20,10,20,0.3) inset;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.slotFast:hover {
+    opacity: 0.8;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.slot {
+    position: relative;
+	float: left;
+	width: 117px;
+    height: 117px;
+	text-align: center;
+	border: 1px solid rgba(255,255,255,0.2);
+    background-color: rgba(50, 50, 50, 0.68);
+	transition: all 0.2s ease;
+	margin: 0.09vh;
+	box-shadow: 0px -2.13vh 0px rgba(20,10,20,0.3) inset;
+}
+
+.slot:hover {
+    background-color: rgba(170,170,170,0.6);
+}
+
+.used-item-slot {
+    position: absolute;
+    right: 50px;
+    bottom: 50%;
+    height: 125px;
+    width: 110px;
+    background-color: rgba(124, 124, 124, 0.356);
+    border-style: solid;
+    border-color: rgba(255,255,255,0.2);
+    border-width: 1px 1px 1px 1px;
+}
+
+#used-item-image {
+    height: 125px;
+    width: 110px;
+    background-image: url(img/used-item.png);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position-x: 0;
+}
+
+.added-item-slot {
+    position: absolute;
+    right: 50px;
+    bottom: 50%;
+    height: 125px;
+    width: 110px;
+    background-color: rgba(124, 124, 124, 0.356);
+    border-style: solid;
+    border-color: rgba(255,255,255,0.2);
+    border-width: 1px 1px 1px 1px;
+}
+
+#added-item-image {
+    height: 125px;
+    width: 110px;
+    background-image: url(img/added-item.png);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position-x: 0;
+}
+
+
+.item,
+.item-other {
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    background-position:  center center;
+    margin-top: 20px;
+    margin-left: 15px;
+	background-repeat: no-repeat;
+}
+
+.item-name-bg {
+    width: 100%;
+    width: 117px;
+    height: 20px;
+    position: absolute;
+    bottom: 0;
+}
+
+.item-name {
+	text-align: center;
+	width: 10.2vh;
+	font-size: 1.00vh;
+	position: absolute;
+	margin-left: -13px;
+	bottom: 0.56vh;
+	color: white;
+	text-shadow: -0.09vh -0.09vh 0 #000, 0.09vh -0.09vh 0 #000, -0.09vh 0.09vh 0 #000, 0.09vh 0.09vh 0 #000;
+}
+
+.ui-draggable-dragging .item-name,
+.ui-draggable-dragging .item-count {
+    display: none;
+}
+
+.item-count {
+    position: absolute;
+    top: 0;
+    text-align: right;
+    width: 100px;
+    height: 20px;
+    z-index: 500;
+}
+
+.ammoIcon {
+    width: 8px;
+    height: 8px;
+}
+
+.info-div2 {
+    font-size: 12px;
+	text-align: center;
+    padding: 5px;
+    border: 1px solid rgba(255,255,255,0.2);
+	background-color: rgba(50,50,50,0.6);
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, -50%);
+}
+
+.info-div {
+    font-size: 12px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid rgba(255,255,255,0.2);
+	background-color: rgba(50,50,50,0.6);
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%, -50%);
+}
+
+.controls-div {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.control {
+    width: 100px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+}
+
+.control.disabled {
+    background-color: rgba(17, 5, 17, 0.1);
+}
+
+.hoverControl {
+    background-color: rgb(10, 2, 10);
+}
+
+#playerInventory::-webkit-scrollbar-track,
+#otherInventory::-webkit-scrollbar-track {
+    background-color: none;
+    border: none;
+}
+
+#playerInventory::-webkit-scrollbar,
+#otherInventory::-webkit-scrollbar {
+    width: 4px;
+    background-color: rgba(17, 5, 17, 0.0);
+}
+
+#playerInventory::-webkit-scrollbar-thumb,
+#otherInventory::-webkit-scrollbar-thumb {
+    background-color: rgba(17, 5, 17, 0.3);
+    border: 2px solid rgba(17, 5, 17, 0.3);
+}
+
+.nearbyPlayerButton {
+    width: 100%;
+    margin-top: 5px;
+    display: block;
+    text-decoration: none;
+    padding: 2px;
+    color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(63, 57, 83, 0.226);
+    text-shadow: none;
+    font-size: 14px !important;
+    outline: none;
+    text-transform: none;
+    text-align: center;
+    line-height: 30px;
+    border: none;
+}
+
+.nearbyPlayerButton:hover {
+    background-color: rgba(34, 29, 46, 0.8);
+}
+
+#noSecondInventoryMessage {
+    width: 615px;
+    height: 580px;
+    line-height: 580px;
+    text-align: center;
+}
+
+@media (max-width: 1500px) {
+    .inventory {
+        width: 1300px;
+    }
+
+    #playerInventory {
+        width: 550px;
+    }
+
+    #controls {
+        width: 200px;
+    }
+
+    #otherInventory {
+        width: 550px;
+    }
+
+    #noSecondInventoryMessage {
+        width: 540px;
+    }
+}
+
+@media (max-width: 1450px) {
+    
+    .inventory {
+        width: 1000px;
+        left: 45%;
+        top: 70%;
+        transform: translate(-50%, -50%);
+    }
+
+    .item-count {
+        position: absolute;
+        top: 0;
+        text-align: right;
+        width: 60px;
+        height: 20px;
+        z-index: 500;
+        font-size: 12px;
+    }
+
+    #playerInventoryFastItems {
+        width: 500px;
+        height: 50px;
+        position : absolute;
+        bottom : 120.4%;
+        left: 0%;
+        z-index: 100;
+        float:left;
+    }
+    
+    .slotfix {
+        float: left;
+        width: 100px;
+        height: 100px;
+        margin: 2px;
+        position: relative;
+    }
+    
+    .slotFast {
+        float: left;
+        width: 100px;
+        height: 100px;
+        margin: 2px;
+        position: relative;
+    }
+    
+    .slotFast:hover {
+        opacity: 0.8;
+    }
+
+    #playerInventory {
+        width: 425px;
+        height: 310px;
+    }
+
+    #controls {
+        width: 150px;
+    }
+
+    #otherInventory {
+        width: 425px;
+        height: 310px;
+    }
+
+    #noSecondInventoryMessage {
+        width: 420px;
+    }
+
+    .slot {
+        width: 100px;
+        height: 100px;
+    }
+    
+
+
+    .item-name-bg {
+        width: 75%;
+        width: 100px;
+        height: 20px;
+        position: absolute;
+        bottom: 0;
+    }
+
+    #controls {
+        width: 150px;
+        height: 400px;
+        float: left;
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+
+    .control {
+        width: 80px;
+        height: 35px;
+        margin: 10px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 40px;
+        font-size: 12px;
+
+    }
+    
+    
+}
+
+.keybind {
+    position: absolute;
+    top: 0;
+    text-align: left;
+    width: 20px;
+    height: 20px;
+    z-index: 500;
+	background-color: rgba(0, 0, 0, 0.01);
+	text-align: center;
+}
+
+
+
